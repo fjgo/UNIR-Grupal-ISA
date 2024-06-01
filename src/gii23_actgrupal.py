@@ -24,9 +24,9 @@ def raiz_cuadrada(n):
     b = 1
 
     # Mejorar la aproximación
-    while abs(a - b) > error:  # Usando abs(a - b) para calcular la diferencia
-        a = (a + b) / 2  # Promedio de a y b
-        b = n / a  # Nuevo valor de b como n dividido por la nueva a
+    while abs(resta(a, b)) > error:  # Usando abs(a - b) para calcular la diferencia
+        a = division(suma(a, b), 2)  # Promedio de a y b
+        b = division(n, a)  # Nuevo valor de b como n dividido por la nueva a
 
   return a
 
