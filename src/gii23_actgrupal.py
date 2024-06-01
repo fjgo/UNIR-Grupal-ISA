@@ -14,8 +14,21 @@ def division(a, b):
     raise ValueError("Error: No se puede dividir por cero")
   return a / b
 
-def raiz_cuadrada(a):
-  return 0
+def raiz_cuadrada(n):
+  error=1e-5
+  if n < 0:
+        raise ValueError("No se puede calcular la raíz cuadrada de un número negativo")
+
+    # Aproximación inicial
+    a = n
+    b = 1
+
+    # Mejorar la aproximación
+    while abs(a - b) > error:  # Usando abs(a - b) para calcular la diferencia
+        a = (a + b) / 2  # Promedio de a y b
+        b = n / a  # Nuevo valor de b como n dividido por la nueva a
+
+  return a
 
 def exponencial(a):
   return 0
