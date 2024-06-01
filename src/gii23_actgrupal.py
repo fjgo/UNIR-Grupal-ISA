@@ -1,3 +1,5 @@
+import math;
+
 def suma(a, b):
   return a + b
 
@@ -12,6 +14,11 @@ def division(a, b):
     raise ValueError("Error: No se puede dividir por cero")
   return a / b
 
+def raiz_cuadrada(a):
+  return 0
+
+def exponencial(a):
+  return 0
 
 # Pruebas unitarias
 import unittest
@@ -37,6 +44,19 @@ class TestCalculadora(unittest.TestCase):
     self.assertAlmostEqual(division(3, 2), 1.5 , places=3)
     self.assertAlmostEqual(division(-6, 2), -3, places=3)
     self.assertAlmostEqual(division(-7, -3), 2.333333333333333, places=3)
+
+  def test_raiz_cuadrada(self):
+    self.assertAlmostEqual(raiz_cuadrada(4), 2, places=3)
+    self.assertAlmostEqual(raiz_cuadrada(9), 3, places=3)
+    self.assertAlmostEqual(raiz_cuadrada(2), 1.414213562373095, places=3)
+    with self.assertRaises(ValueError):
+        raiz_cuadrada(-1)
+
+  def test_exponencial(self):
+    self.assertAlmostEqual(exponencial(0), 1, places=3)
+    self.assertAlmostEqual(exponencial(1), math.e, places=3)
+    self.assertAlmostEqual(exponencial(-1), 1 / math.e, places=3)
+    self.assertAlmostEqual(exponencial(2), math.e**2, places=3)
 
 if __name__ == '__main__':
     unittest.main()
