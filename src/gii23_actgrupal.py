@@ -30,8 +30,19 @@ def raiz_cuadrada(n):
 
   return a
 
-def exponencial(a):
-  return 0
+def exponencial(x):
+    error = 1e-5
+    term = 1.0  # Primer término de la serie de Taylor
+    sum = 1.0   # La suma comienza con el primer término
+    n = 1       # Contador para el factorial en el denominador
+
+    while abs(term) > error:
+        term = multiplicacion(term, division(x , n))
+        sum = suma(sum, term)
+        n = n + 1
+
+return sum
+  
 
 # Pruebas unitarias
 import unittest
